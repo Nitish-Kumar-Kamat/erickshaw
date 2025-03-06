@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ई-रिक्शा मथुरा रजिस्ट्रेशन</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <form id="registrationForm">
+            <h2>ई-रिक्शा <span class="highlight">मथुरा</span> रजिस्ट्रेशन फॉर्म</h2>
+            <p>अपने ई-रिक्शा का RC नंबर भरें</p>
+            
+            <label for="state">State</label>
+            <input type="text" id="state" name="state" value="UP85" required readonly>
+            
+            <label for="series">Series</label>
+            <div class="custom-dropdown">
+                <input type="text" id="series" name="series" placeholder="Select Series" readonly>
+                <div class="dropdown-options">
+                    <div>AT</div>
+                    <div>BT</div>
+                    <div>CT</div>
+                    <div>DT</div>
+                    <div>ET</div>
+                    <div>FT</div>
+                </div>
+            </div>
+            
+            <label for="last_digits">Last 4 Digit No</label>
+            <input type="text" id="last_digits" name="last_digits" placeholder="" required>
+            
+            <button type="submit">आगे बढ़े</button>
+        </form>
+    </div>
+    
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>
