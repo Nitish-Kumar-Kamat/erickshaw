@@ -1,0 +1,251 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+   
+}
+
+/* Background Video */
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+}
+canvas {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+/* Registration Form */
+.container {
+    position: relative;
+    background: rgba(255, 255, 255, 0.1); /* अधिक ट्रांसपेरेंट */
+    backdrop-filter: blur(20px); /* बैकग्राउंड ब्लर */
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5);
+    width: 90%;
+    max-width: 420px;
+    text-align: center;
+    animation: fadeIn 1.2s ease-in-out;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+h2 {
+    color: #ff007f;
+    font-size: 26px;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.highlight {
+    color: #ff4081;
+    font-weight: bold;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin: 10px 0 5px;
+    text-align: left;
+    color: #fff;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+input:focus {
+    background: rgba(255, 255, 255, 0.3);
+    border: 1px solid #ff4081;
+}
+
+/* Custom Dropdown */
+.custom-dropdown {
+    position: relative;
+    width: 100%;
+}
+
+.custom-dropdown input {
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.dropdown-options {
+    display: none;
+    position: absolute;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.dropdown-options div {
+    padding: 12px;
+    text-align: left;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.dropdown-options div:hover {
+    background: rgba(255, 64, 129, 0.3);
+}
+
+button {
+    width: 100%;
+    background: linear-gradient(45deg, #ff007f, #ff4081);
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 4px 10px rgba(255, 0, 127, 0.4);
+}
+
+button:hover {
+    background: linear-gradient(45deg, #b0003a, #ff007f);
+    transform: scale(1.08);
+}
+
+/* Mobile Responsive */
+@media (max-width: 480px) {
+    .container {
+        width: 95%;
+        padding: 20px;
+    }
+}
+
+
+/* Road Container */
+.road-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 80px; /* रोड को और छोटा किया */
+    background: #b0b8b2; /* रोड का कलर */
+    border-top: 3px solid white;
+    overflow: hidden;
+}
+
+/* Road Lines - Properly Aligned at Bottom */
+.road-lines {
+    position: absolute;
+    bottom: 5px; /* Niche fix kar diya */
+    left: 0;
+    width: 100%;
+    height: 4px; /* Thoda mota kiya taaki dikhai de */
+    background: repeating-linear-gradient(
+        to right,
+        white 0%,
+        white 10%,
+        transparent 10%,
+        transparent 20%
+    );
+    background-size: 100px;
+    animation: moveLines 3s linear infinite;
+}
+
+/* Road Line Animation */
+@keyframes moveLines {
+    from { background-position: 0; }
+    to { background-position: -100px; }
+}
+
+
+
+
+/* Rickshaw Styling - NO CHANGE */
+.rickshaw {
+    position: absolute;
+    bottom: 2px; /* रोड पर सही से बैठेगा */
+    left: -100px; /* रिक्शा बाहर से आएगा */
+    width: 110px; /* रिक्शा का साइज थोड़ा छोटा किया */
+    height: auto;
+    animation: moveRickshaw 20s linear infinite; /* Speed adjust */
+}
+
+/* Rickshaw Moving Animation - NO CHANGE */
+@keyframes moveRickshaw {
+    0% { left: -100px; }
+    100% { left: 100%; }
+}
+
+/* Message Box - Rickshaw के पीछे */
+.moving-message {
+    font-size: 30px;
+    font-weight: bold;
+    color: black;
+    text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8), 0px 0px 15px #ffcc00;
+/*    background: rgba(0, 0, 0, 0.7);*/
+    padding: 10px 20px;
+    border-radius: 12px;
+    white-space: nowrap;
+    position: absolute;
+    left: -150px; /* Rickshaw के पीछे थोड़ा offset */
+    bottom: 0px; /* Rickshaw से थोड़ा ऊपर */
+    opacity: 0;
+    transform: translateY(10px);
+    animation: moveMessage 10s linear infinite; /* Rickshaw के साथ ही move होगा */
+}
+
+/* Message Moving Animation */
+@keyframes moveMessage {
+    0% { left: -150px; opacity: 0; transform: translateY(10px); }
+    10% { opacity: 1; transform: translateY(0px); } /* Fade in */
+    100% { left: 90%; opacity: 1; transform: translateY(0px); }
+}
+
+
+.fade-out {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.fade-in {
+    opacity: 1;
+    transform: translateY(0px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+
